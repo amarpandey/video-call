@@ -37,8 +37,7 @@ export default function App() {
       const zp = ZegoUIKitPrebuilt.create(kitToken);
       // start the call
       zp.joinRoom({
-        // container: element,
-        container: document.querySelector("#root"),
+        container: element,
         showPreJoinView: false,
         showRoomTimer: true,
         sharedLinks: [
@@ -51,6 +50,8 @@ export default function App() {
               roomID,
           },
         ],
+
+        
         scenario: {
           mode: ZegoUIKitPrebuilt.OneONoneCall, // To implement 1-on-1 calls, modify the parameter here to [ZegoUIKitPrebuilt.OneONoneCall].
           
@@ -64,7 +65,7 @@ export default function App() {
     <div
       className="myCallContainer"
       ref={myMeeting}
-      style={{ width: '100vw', height: '10vh' }}
+      style={{ width: '100vw', height: '100vh' }}
     ></div>
   );
 }
