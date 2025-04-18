@@ -25,14 +25,16 @@ export function getUrlParams(
 
 export default function App() {
       const roomID = getUrlParams().get('roomID') || randomID(5);
-      alert(roomID);
+      const callerID = getUrlParams().get('callerID') || randomID(5);
+      console.log(roomID);
+      // alert(window.location.protocol + '//' + window.location.host + window.location.pathname +'?roomID=' +roomID);
       let myMeeting = async (element) => {
      // generate Kit Token
       const appID = AppConstants.APP_ID;
       const serverSecret = AppConstants.SERVER_SECRET;
-      const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID,  randomID(5),  randomID(5));
+      const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID,  randomID(5),  callerID);
 
-    
+        
      // Create instance object from Kit Token.
       const zp = ZegoUIKitPrebuilt.create(kitToken);
       // start the call
